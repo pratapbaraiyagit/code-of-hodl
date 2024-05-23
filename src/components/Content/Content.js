@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   Container,
   Grid,
@@ -9,16 +10,32 @@ import {
   Tab,
   Button,
 } from "@mui/material";
+import "./content.css";
 
 const Content = () => {
   const [selectedTab, setSelectedTab] = useState(0);
+  const [airdropData, setAirdropData] = useState(null);
 
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
 
+  const fetchAirdropData = async () => {
+    try {
+      const response = await axios.post("http://65.108.2.116:8000/airdrop/start");
+      setAirdropData(response.data);
+    } catch (error) {
+      console.error("Error fetching airdrop data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchAirdropData();
+  }, []);
+
   return (
     <Container
+    // className="content-container"
       style={{
         marginTop: "123px",
         marginBottom: "20px",
