@@ -14,8 +14,8 @@ const App = () => {
         backgroundImage: "url(background-new.png)",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundRepeat: 'no-repeat',
-        opacity: 0.9
+        backgroundRepeat: "no-repeat",
+        opacity: 0.9,
       }}
     >
       <Header />
