@@ -14,6 +14,36 @@ import {
 import "./Content.css";
 import { toast } from "react-toastify";
 
+const dummyData = [
+  {
+    no: 1,
+    value:
+      "Event Duration: The Event Will Run For 15 Days, From May 9th At 2:00 AM UTC To May 24th at 2:00 AM UTC.",
+  },
+  {
+    no: 2,
+    value:
+      "Airdrop Distribution: The Airdrop Will Be Based On The Trading Volume And Listings Of Zome NFTs.",
+  },
+  {
+    no: 3,
+    value:
+      "Listing Rewards: Users Whose Listings Rank In The Top 10% By Volume (Number Of Listings Multiplied By The Amount) Will Share 5% Of The Total Airdrop.",
+  },
+  {
+    no: 4,
+    value:
+      "Trading Rewards: Traders Will Share 95% Of The Total Airdrop, Distributed In Proportion To Their Trading Volumes.",
+  },
+  {
+    no: 5,
+    value:
+      "Eligible Markets: The Event Is Exclusive To The Opensea And OKX NFT Markets.",
+  },
+];
+
+const tabData = ["Code of HODL", "$HODL"];
+
 const Content = () => {
   const { address, chainId, isConnected } = useWeb3ModalAccount();
 
@@ -72,21 +102,16 @@ const Content = () => {
       }}
     >
       <Grid container spacing={3} justifyContent="center">
-        <Grid
-          item
-          xs={12}
-          md={9}
-          style={{ paddingLeft: "10px", paddingRight: "10px" }}
-        >
+        <Grid item xs={12} md={10}>
           <Card
             sx={{
               width: "600px",
               borderRadius: "10px",
-              border: "2px solid #FFFFFF",
+              border: "0.8px solid #FFFFFF",
               backgroundColor: "rgba(255, 255, 255, 0)", // Fully transparent background
               borderImageSource:
                 "linear-gradient(0deg, #D0E0F3, #D0E0F3), radial-gradient(124.52% 124.52% at -3.99% 35.36%, #00D1FF 0%, rgba(0, 209, 255, 0) 69.33%), radial-gradient(73.57% 73.57% at 0% 67.49%, #E478FF 0%, rgba(86, 102, 239, 0) 69.33%), radial-gradient(88.4% 88.4% at 86.12% 6.46%, #72E98A 0%, rgba(114, 233, 138, 0) 56.56%), radial-gradient(108.75% 108.75% at 117.11% 81.18%, #B566E6 0%, rgba(181, 102, 230, 0) 77.6%), radial-gradient(58.56% 126.24% at 31.37% 0%, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0) 77.6%), radial-gradient(42.61% 55.51% at 60.46% 100%, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 100%)",
-              boxShadow: "0px 0px 20px 0px #00FF93, 0px 4px 30px 0px #E478FF",
+              boxShadow: "0px 0px 5px 0px #00FF93, 0px 4px 5px 0px #E478FF",
             }}
           >
             <Tabs
@@ -98,28 +123,21 @@ const Content = () => {
                 },
               }}
             >
-              <Tab
-                style={{
-                  fontFamily: "Kaushan Script",
-                  color: "white",
-                  fontSize: "30px",
-                  marginLeft: "50px",
-                  textShadow:
-                    "0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de",
-                }}
-                label="Code of HODL"
-              />
-              <Tab
-                style={{
-                  fontFamily: "Kaushan Script",
-                  color: "white",
-                  fontSize: "30px",
-                  marginLeft: "50px",
-                  textShadow:
-                    "0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de",
-                }}
-                label="$HODL"
-              />
+              {tabData?.map((tabItem, itemValue) => {
+                return (
+                  <Tab
+                    style={{
+                      fontFamily: "Kaushan Script",
+                      color: "white",
+                      fontSize: "30px",
+                      marginLeft: "50px",
+                      textShadow:
+                        "0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de",
+                    }}
+                    label={tabItem}
+                  />
+                );
+              })}
             </Tabs>
             {selectedTab === 0 && (
               <CardContent>
@@ -167,12 +185,12 @@ const Content = () => {
                     alignContent: "center",
                     width: "400px",
                     borderRadius: "5px",
-                    border: "2px solid #FFFFFF",
                     backgroundColor: "rgba(255, 255, 255, 0)", // Fully transparent background
+                    border: "0.8px solid #FFFFFF",
                     borderImageSource:
                       "linear-gradient(0deg, #D0E0F3, #D0E0F3), radial-gradient(124.52% 124.52% at -3.99% 35.36%, #00D1FF 0%, rgba(0, 209, 255, 0) 69.33%), radial-gradient(73.57% 73.57% at 0% 67.49%, #E478FF 0%, rgba(86, 102, 239, 0) 69.33%), radial-gradient(88.4% 88.4% at 86.12% 6.46%, #72E98A 0%, rgba(114, 233, 138, 0) 56.56%), radial-gradient(108.75% 108.75% at 117.11% 81.18%, #B566E6 0%, rgba(181, 102, 230, 0) 77.6%), radial-gradient(58.56% 126.24% at 31.37% 0%, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0) 77.6%), radial-gradient(42.61% 55.51% at 60.46% 100%, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 100%)",
                     boxShadow:
-                      "0px 0px 20px 0px #00FF93, 0px 4px 30px 0px #E478FF",
+                      "0px 0px 5px 0px #00FF93, 0px 4px 5px 0px #E478FF",
                   }}
                 >
                   <Typography
@@ -215,12 +233,12 @@ const Content = () => {
                     alignContent: "center",
                     // width: "400px",
                     borderRadius: "10px",
-                    border: "2px solid #FFFFFF",
                     backgroundColor: "rgba(255, 255, 255, 0)", // Fully transparent background
+                    border: "0.8px solid #FFFFFF",
                     borderImageSource:
                       "linear-gradient(0deg, #D0E0F3, #D0E0F3), radial-gradient(124.52% 124.52% at -3.99% 35.36%, #00D1FF 0%, rgba(0, 209, 255, 0) 69.33%), radial-gradient(73.57% 73.57% at 0% 67.49%, #E478FF 0%, rgba(86, 102, 239, 0) 69.33%), radial-gradient(88.4% 88.4% at 86.12% 6.46%, #72E98A 0%, rgba(114, 233, 138, 0) 56.56%), radial-gradient(108.75% 108.75% at 117.11% 81.18%, #B566E6 0%, rgba(181, 102, 230, 0) 77.6%), radial-gradient(58.56% 126.24% at 31.37% 0%, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0) 77.6%), radial-gradient(42.61% 55.51% at 60.46% 100%, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 100%)",
                     boxShadow:
-                      "0px 0px 20px 0px #00FF93, 0px 4px 30px 0px #E478FF",
+                      "0px 0px 5px 0px #00FF93, 0px 4px 5px 0px #E478FF",
                   }}
                 >
                   <Typography
@@ -243,148 +261,37 @@ const Content = () => {
                         paddingLeft: 0,
                       }}
                     >
-                      <li
-                        style={{
-                          position: "relative",
-                          paddingLeft: "30px",
-                          color: "white",
-                        }}
-                      >
-                        <span
-                          style={{
-                            position: "absolute",
-                            left: 0,
-                            top: 0,
-                            backgroundColor: "black",
-                            color: "#00D1FF",
-                            width: "20px",
-                            height: "20px",
-                            borderRadius: "50%",
-                            textAlign: "center",
-                            lineHeight: "20px",
-                            fontWeight: "bold",
-                            border: "2px solid black",
-                          }}
-                        >
-                          1
-                        </span>
-                        Event Duration: The Event Will Run For 15 Days, From May
-                        9th At 2:00 AM UTC To May 24th at 2:00 AM UTC.
-                      </li>
-                      <li
-                        style={{
-                          position: "relative",
-                          paddingLeft: "30px",
-                          color: "white",
-                        }}
-                      >
-                        <span
-                          style={{
-                            position: "absolute",
-                            left: 0,
-                            top: 0,
-                            backgroundColor: "black",
-                            color: "#00D1FF",
-                            width: "20px",
-                            height: "20px",
-                            borderRadius: "50%",
-                            textAlign: "center",
-                            lineHeight: "20px",
-                            fontWeight: "bold",
-                            border: "2px solid black",
-                          }}
-                        >
-                          2
-                        </span>
-                        Airdrop Distribution: The Airdrop Will Be Based On The
-                        Trading Volume And Listings Of Zome NFTs.
-                      </li>
-                      <li
-                        style={{
-                          position: "relative",
-                          paddingLeft: "30px",
-                          color: "white",
-                        }}
-                      >
-                        <span
-                          style={{
-                            position: "absolute",
-                            left: 0,
-                            top: 0,
-                            backgroundColor: "black",
-                            color: "#00D1FF",
-                            width: "20px",
-                            height: "20px",
-                            borderRadius: "50%",
-                            textAlign: "center",
-                            lineHeight: "20px",
-                            fontWeight: "bold",
-                            border: "2px solid black",
-                          }}
-                        >
-                          3
-                        </span>
-                        Listing Rewards: Users Whose Listings Rank In The Top
-                        10% By Volume (Number Of Listings Multiplied By The
-                        Amount) Will Share 5% Of The Total Airdrop.
-                      </li>
-                      <li
-                        style={{
-                          position: "relative",
-                          paddingLeft: "30px",
-                          color: "white",
-                        }}
-                      >
-                        <span
-                          style={{
-                            position: "absolute",
-                            left: 0,
-                            top: 0,
-                            backgroundColor: "black",
-                            color: "#00D1FF",
-                            width: "20px",
-                            height: "20px",
-                            borderRadius: "50%",
-                            textAlign: "center",
-                            lineHeight: "20px",
-                            fontWeight: "bold",
-                            border: "2px solid black",
-                          }}
-                        >
-                          4
-                        </span>
-                        Trading Rewards: Traders Will Share 95% Of The Total
-                        Airdrop, Distributed In Proportion To Their Trading
-                        Volumes.
-                      </li>
-                      <li
-                        style={{
-                          position: "relative",
-                          paddingLeft: "30px",
-                          color: "white",
-                        }}
-                      >
-                        <span
-                          style={{
-                            position: "absolute",
-                            left: 0,
-                            top: 0,
-                            backgroundColor: "black",
-                            color: "#00D1FF",
-                            width: "20px",
-                            height: "20px",
-                            borderRadius: "50%",
-                            textAlign: "center",
-                            lineHeight: "20px",
-                            fontWeight: "bold",
-                            border: "2px solid black",
-                          }}
-                        >
-                          5
-                        </span>
-                        Eligible Markets: The Event Is Exclusive To The Opensea
-                        And OKX NFT Markets.
-                      </li>
+                      {dummyData?.map((data, index) => {
+                        return (
+                          <li
+                            style={{
+                              position: "relative",
+                              paddingLeft: "30px",
+                              color: "white",
+                            }}
+                          >
+                            <span
+                              style={{
+                                position: "absolute",
+                                left: 0,
+                                top: 0,
+                                backgroundColor: "black",
+                                color: "#00D1FF",
+                                width: "20px",
+                                height: "20px",
+                                borderRadius: "50%",
+                                textAlign: "center",
+                                lineHeight: "20px",
+                                fontWeight: "bold",
+                                border: "2px solid black",
+                              }}
+                            >
+                              {data?.no}
+                            </span>
+                            {data?.value}
+                          </li>
+                        );
+                      })}
                     </ol>
                   </Typography>{" "}
                 </Card>
@@ -403,11 +310,16 @@ const Content = () => {
               color: "white",
               height: "45px",
               background: "linear-gradient(to right, #479863, #234D95)",
-              border: "3px solid",
               backgroundImage: "linear-gradient(to right, #479863, #234D95)",
               borderRadius: "20px",
-              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
               marginTop: "20px",
+
+              backgroundColor: "rgba(255, 255, 255, 0)", // Fully transparent background
+              border: "0.8px solid #FFFFFF",
+              borderImageSource:
+                "linear-gradient(0deg, #D0E0F3, #D0E0F3), radial-gradient(124.52% 124.52% at -3.99% 35.36%, #00D1FF 0%, rgba(0, 209, 255, 0) 69.33%), radial-gradient(73.57% 73.57% at 0% 67.49%, #E478FF 0%, rgba(86, 102, 239, 0) 69.33%), radial-gradient(88.4% 88.4% at 86.12% 6.46%, #72E98A 0%, rgba(114, 233, 138, 0) 56.56%), radial-gradient(108.75% 108.75% at 117.11% 81.18%, #B566E6 0%, rgba(181, 102, 230, 0) 77.6%), radial-gradient(58.56% 126.24% at 31.37% 0%, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0) 77.6%), radial-gradient(42.61% 55.51% at 60.46% 100%, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 100%)",
+              boxShadow:
+                "0px 0px 2px 0px #00FF93, 0px 2px 2px 0px #E478FF",
             }}
             onClick={handleClaim}
             disabled={claiming}

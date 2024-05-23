@@ -10,16 +10,16 @@ const App = () => {
   return (
     <div
       className="App"
-      style={{
-        // textAlign: "center",
-        // overflow: "hidden",
-        height: "100vh",
-        backgroundImage: "url(background-new.png)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        opacity: 0.9,
-      }}
+      // style={{
+      //   // textAlign: "center",
+      //   // overflow: "hidden",
+      //   height: "100vh",
+      //   backgroundImage: "url(background-new.png)",
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "center",
+      //   backgroundRepeat: "no-repeat",
+      //   opacity: 0.9,
+      // }}
     >
       <Header />
       <Content />

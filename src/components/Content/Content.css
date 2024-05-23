@@ -1,0 +1,35 @@
+.content-container{
+    margin-top: 123px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 805px;
+    left: 558px;
+    gap: 0px;
+    opacity: 0px;
+}
+
+.card{
+    width: 600px;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    /* background-color: rgba(255,255,255,0); */
+    background-color: rgba(0, 0, 0, 0.73);
+    border-image-source: linear-gradient(0deg, #D0E0F3, #D0E0F3), radial-gradient(124.52% 124.52% at -3.99% 35.36%, #00D1FF 0%, rgba(0, 209, 255, 0) 69.33%), radial-gradient(73.57% 73.57% at 0% 67.49%, #E478FF 0%, rgba(86, 102, 239, 0) 69.33%), radial-gradient(88.4% 88.4% at 86.12% 6.46%, #72E98A 0%, rgba(114, 233, 138, 0) 56.56%), radial-gradient(108.75% 108.75% at 117.11% 81.18%, #B566E6 0%, rgba(181, 102, 230, 0) 77.6%), radial-gradient(58.56% 126.24% at 31.37% 0%, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0) 77.6%), radial-gradient(42.61% 55.51% at 60.46% 100%, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 0px 0px 20px 0px #00FF93, 0px 4px 30px 0px #E478FF;
+}
+
+.tab-style {
+  font-family: 'Kaushan Script';
+  color: white;
+  font-size: 30px;
+  margin-left: 50px;
+  text-shadow: 0 0 10px #fff, 
+               0 0 20px #fff, 
+               0 0 30px #fff, 
+               0 0 40px #ff00de, 
+               0 0 70px #ff00de, 
+               0 0 80px #ff00de, 
+               0 0 100px #ff00de, 
+               0 0 150px #ff00de;
+}
