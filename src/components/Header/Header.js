@@ -21,7 +21,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 const Header = () => {
   const { open } = useWeb3Modal();
 
-  const { address, chainId, isConnected } = useWeb3ModalAccount();
+  const { address, isConnected } = useWeb3ModalAccount();
   const { disconnect } = useDisconnect();
 
   console.log(address);

@@ -45,13 +45,17 @@ const dummyData = [
 const tabData = ["Code of HODL", "$HODL"];
 
 const Content = () => {
-  const { address, chainId, isConnected } = useWeb3ModalAccount();
+  const { address, isConnected } = useWeb3ModalAccount();
 
   const [selectedTab, setSelectedTab] = useState(0);
   const [airdropData, setAirdropData] = useState(0);
   const [claiming, setClaiming] = useState(false);
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
@@ -117,7 +121,11 @@ const Content = () => {
   });
 
   const formatTimeLeft = (timeLeft) => {
-    return `${String(timeLeft.days).padStart(2, "0")}D ${String(timeLeft.hours).padStart(2, "0")}H ${String(timeLeft.minutes).padStart(2, "0")}M ${String(timeLeft.seconds).padStart(2, "0")}S`;
+    return `${String(timeLeft.days).padStart(2, "0")}D ${String(
+      timeLeft.hours
+    ).padStart(2, "0")}H ${String(timeLeft.minutes).padStart(2, "0")}M ${String(
+      timeLeft.seconds
+    ).padStart(2, "0")}S`;
   };
 
   return (
@@ -159,7 +167,7 @@ const Content = () => {
               {tabData?.map((tabItem, itemValue) => {
                 return (
                   <Tab
-                  key={itemValue}
+                    key={itemValue}
                     style={{
                       fontFamily: "Kaushan Script",
                       color: "white",
@@ -258,7 +266,7 @@ const Content = () => {
                     textAlign: "center",
                   }}
                 >
-                 {formatTimeLeft(timeLeft)}
+                  {formatTimeLeft(timeLeft)}
                 </Typography>
                 <Card
                   sx={{
@@ -352,8 +360,7 @@ const Content = () => {
               border: "0.8px solid #FFFFFF",
               borderImageSource:
                 "linear-gradient(0deg, #D0E0F3, #D0E0F3), radial-gradient(124.52% 124.52% at -3.99% 35.36%, #00D1FF 0%, rgba(0, 209, 255, 0) 69.33%), radial-gradient(73.57% 73.57% at 0% 67.49%, #E478FF 0%, rgba(86, 102, 239, 0) 69.33%), radial-gradient(88.4% 88.4% at 86.12% 6.46%, #72E98A 0%, rgba(114, 233, 138, 0) 56.56%), radial-gradient(108.75% 108.75% at 117.11% 81.18%, #B566E6 0%, rgba(181, 102, 230, 0) 77.6%), radial-gradient(58.56% 126.24% at 31.37% 0%, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0) 77.6%), radial-gradient(42.61% 55.51% at 60.46% 100%, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 100%)",
-              boxShadow:
-                "0px 0px 2px 0px #00FF93, 0px 2px 2px 0px #E478FF",
+              boxShadow: "0px 0px 2px 0px #00FF93, 0px 2px 2px 0px #E478FF",
             }}
             onClick={handleClaim}
             disabled={claiming}
