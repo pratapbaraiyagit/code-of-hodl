@@ -10,7 +10,7 @@ import {
   Tab,
   Button,
 } from "@mui/material";
-import "./content.css";
+import "./Content.css";
 
 const Content = () => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -22,7 +22,9 @@ const Content = () => {
 
   const fetchAirdropData = async () => {
     try {
-      const response = await axios.post("http://65.108.2.116:8000/airdrop/start");
+      const response = await axios.post(
+        "http://65.108.2.116:8000/airdrop/start"
+      );
       setAirdropData(response.data);
     } catch (error) {
       console.error("Error fetching airdrop data:", error);
@@ -35,7 +37,7 @@ const Content = () => {
 
   return (
     <Container
-    // className="content-container"
+      // className="content-container"
       style={{
         marginTop: "123px",
         marginBottom: "20px",
@@ -48,7 +50,12 @@ const Content = () => {
       }}
     >
       <Grid container spacing={3} justifyContent="center">
-        <Grid item xs={12} md={9} style={{ paddingLeft: '10px', paddingRight: '10px' }}>
+        <Grid
+          item
+          xs={12}
+          md={9}
+          style={{ paddingLeft: "10px", paddingRight: "10px" }}
+        >
           <Card
             sx={{
               width: "600px",
