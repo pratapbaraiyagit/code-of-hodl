@@ -1,6 +1,9 @@
 import React from "react";
 import Header from "./components/Header/Header";
 import Content from "./components/Content/Content";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 const App = () => {
@@ -20,6 +23,8 @@ const App = () => {
     >
       <Header />
       <Content />
+
+      <ToastContainer theme="dark" />
     </div>
   );
 };

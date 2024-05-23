@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useWeb3ModalAccount } from "@web3modal/ethers/react";
 import axios from "axios";
 import {
   Container,
@@ -11,10 +12,14 @@ import {
   Button,
 } from "@mui/material";
 import "./Content.css";
+import { toast } from "react-toastify";
 
 const Content = () => {
+  const { address, chainId, isConnected } = useWeb3ModalAccount();
+
   const [selectedTab, setSelectedTab] = useState(0);
-  const [airdropData, setAirdropData] = useState(null);
+  const [airdropData, setAirdropData] = useState(0);
+  const [claiming, setClaiming] = useState(false);
 
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
@@ -22,18 +27,35 @@ const Content = () => {
 
   const fetchAirdropData = async () => {
     try {
-      const response = await axios.post(
-        "http://65.108.2.116:8000/airdrop/start"
+      const response = await axios.get(
+        `http://65.108.2.116:9010/http://65.108.2.116:8000/api/airdrop/${address}`
       );
-      setAirdropData(response.data);
+      setAirdropData(response.data.amount);
     } catch (error) {
       console.error("Error fetching airdrop data:", error);
     }
   };
 
   useEffect(() => {
-    fetchAirdropData();
-  }, []);
+    if (isConnected && address) {
+      fetchAirdropData();
+    }
+  }, [isConnected, address]);
+
+  const handleClaim = async () => {
+    setClaiming(true);
+    try {
+      const response = await axios.post(
+        `http://65.108.2.116:9010/http://65.108.2.116:8000/api/airdrop/${address}`
+      );
+      console.log(response);
+      toast.success(response.data.message);
+    } catch (error) {
+      console.error("Error claiming airdrop:", error);
+    } finally {
+      setClaiming(false);
+    }
+  };
 
   return (
     <Container
@@ -125,7 +147,7 @@ const Content = () => {
                     textAlign: "center",
                   }}
                 >
-                  o
+                  {airdropData}
                 </Typography>
                 <Typography
                   // variant="body2"
@@ -387,8 +409,10 @@ const Content = () => {
               boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
               marginTop: "20px",
             }}
+            onClick={handleClaim}
+            disabled={claiming}
           >
-            Claim
+            {claiming ? "Claiming..." : "Claim"}
           </Button>
         </Grid>
       </Grid>
