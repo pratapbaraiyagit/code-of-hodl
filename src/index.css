@@ -5,12 +5,11 @@ body {
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Kaushan Script', cursive;
+  font-family: "Kaushan Script", cursive;
 }
 
-
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -22,3 +21,51 @@ code {
   /* margin: 10px 0; */
 }
 
+.container {
+  padding: 20px;
+}
+
+.show_button {
+  margin-right: 120px;
+}
+
+/* card */
+.card_resp {
+  width: 600px;
+}
+
+.tab_value {
+  font-family: "Kaushan Script" !important;
+  color: white !important;
+  font-size: 30px !important;
+  margin-left: 50px !important;
+  /* text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de,
+    0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de !important; */
+}
+
+.tab_in_main_card {
+  margin-left: 80px;
+  align-content: center;
+  width: 400px;
+  border-radius: 5px;
+}
+
+.tab_in_main_card_two {
+  margin-left: 40px;
+  margin-right: 40px;
+  width: auto;
+  align-content: center;
+}
+
+.tab_in_card {
+  font-family: "Berkshire Swash";
+  font-size: 16px;
+  font-weight: 400px;
+  color: white;
+  text-align: center;
+}
+
+
+.claim_button{
+  margin-left: 0px;
+}

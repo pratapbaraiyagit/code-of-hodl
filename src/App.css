@@ -1,88 +1,120 @@
+/* Common styles */
 .App {
+  position: relative;
   text-align: center;
   overflow: hidden;
-  height: 100vh;
-  background-image: url('/public/background-new.png');
+  background-image: url("/public/background-new.png");
   background-size: cover;
-  background-position: center;
+  /* background-position: center; */
   background-repeat: no-repeat;
   opacity: 0.8;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity here */
+  z-index: 1; /* Ensure it sits above the background image */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Ensure the content within .App is positioned above the overlay */
+.App > * {
+  position: relative;
+  z-index: 2;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 200vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-body, html, #root {
+body,
+html,
+#root {
   margin: 0;
   height: 100%;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-/* Styles for mobile devices */
-@media screen and (max-width: 600px) {
-  .App-logo {
-    height: 20vmin;
+/* Styles for desktop */
+@media (min-width: 1024px) {
+  .App {
+    height: 100vh;
   }
-  .App-header {
-    min-height: 100vh;
-    font-size: 16px;
-  }
-  .App-link {
-    font-size: 14px;
+
+  .custom-card-content {
+    padding: 20px; /* Increase padding for larger screens */
   }
 }
 
-/* Styles for tablet devices */
-@media screen and (min-width: 601px) and (max-width: 1024px) {
-  .App-header {
-    font-size: 20px;
+/* Styles for tablets */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .App {
+    height: auto; /* Allow content to expand vertically */
   }
-  .App-link {
-    font-size: 18px;
+
+  .custom-card-content {
+    padding: 15px; /* Adjust padding for tablets */
   }
 }
 
-/* Styles for desktop devices */
-@media screen and (min-width: 1025px) {
-  .App-logo {
-    height: 40vmin;
+/* Styles for mobile */
+@media (max-width: 767px) {
+  .App {
+    height: auto;
+    background-position: center; /* Allow content to expand vertically */
   }
-  .App-header {
-    font-size: 24px;
+
+  .custom-card-content {
+    padding: 10px; /* Adjust padding for mobile */
   }
-  .App-link {
-    font-size: 20px;
+
+  .menu {
+    margin-left: 0px;
+  }
+
+  .logo {
+    margin-left: 1px;
+    margin-right: 0px;
+    margin-top: 1px;
+  }
+
+  .menuText {
+    font-size: 10px;
+    font-family: "Kaushan Script";
+  }
+
+  .show_button {
+    margin-right: 0px;
+  }
+
+  .tab_value {
+    font-family: "Kaushan Script" !important;
+    color: white !important;
+    font-size: 18px !important;
+    margin-left: 30px !important;
+    /* text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de,
+      0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de !important; */
+  }
+
+  .card_resp {
+    width: 350px;
+  }
+
+  .tab_in_main_card {
+    margin-left: 2px;
+    align-content: center;
+    width: auto;
+    border-radius: 5px;
+  }
+
+  .tab_in_main_card_two {
+    margin-left: 2px;
+    align-content: center;
+    width: auto;
+    border-radius: 5px;
+  }
+
+  .claim_button{
+    margin-left: -400px;
   }
 }
