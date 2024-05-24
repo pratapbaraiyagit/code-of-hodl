@@ -45,7 +45,7 @@ const dummyData = [
 const tabData = ["Code of HODL", "$HODL"];
 
 const Content = () => {
-  const { address, chainId, isConnected } = useWeb3ModalAccount();
+  const { address, isConnected } = useWeb3ModalAccount();
 
   const [selectedTab, setSelectedTab] = useState(0);
   const [airdropData, setAirdropData] = useState(0);

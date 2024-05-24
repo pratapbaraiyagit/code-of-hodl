@@ -18,7 +18,8 @@ const StyledButton = styled(Button)(({ theme, active }) => ({
 
 const Header = () => {
   const { open } = useWeb3Modal();
-  const { address, chainId, isConnected } = useWeb3ModalAccount();
+
+  const { address, isConnected } = useWeb3ModalAccount();
   const { disconnect } = useDisconnect();
 
   const handleConnectWallet = () => {
